@@ -1,20 +1,20 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { HashtagController } from './hashtag.controller';
-import { HashtagService } from './hashtag.service';
+import { Test, TestingModule } from '@nestjs/testing'
+import { HashtagController } from './hashtag.controller'
+import { HashtagService } from './hashtag.service'
 
 describe('HashtagController', () => {
-  let controller: HashtagController;
+  let controller: HashtagController
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [HashtagController],
       providers: [HashtagService],
-    }).compile();
+    }).compile()
 
-    controller = module.get<HashtagController>(HashtagController);
-  });
+    controller = module.get<HashtagController>(HashtagController)
+  })
 
   it('should be defined', () => {
-    expect(controller).toBeDefined();
-  });
-});
+    expect(controller).toBeDefined()
+  })
+})
