@@ -32,7 +32,7 @@ export class CreateBlogDto {
     description: 'The URL of the main image for the blog post',
     required: false,
   })
-  @IsUrl()
+  @IsString()
   image: string
 
   @ApiProperty({

@@ -8,12 +8,12 @@ import { User } from '../../user/schema/user.schema'
 export class Hashtag {
   @Prop({ required: true, unique: true })
   name: string
-  @Prop({
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-  })
-  createdBy: User
+  // @Prop({
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'User',
+  //   required: true,
+  // })
+  // createdBy: User
 }
 
 export type HashtagDocument = HydratedDocument<Hashtag>

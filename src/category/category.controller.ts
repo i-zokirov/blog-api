@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  BadRequestException,
 } from '@nestjs/common'
 import { CategoryService } from './category.service'
 import { CreateCategoryDto } from './dto/create-category.dto'
@@ -16,8 +17,13 @@ export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 
   @Post()
-  create(@Body() createCategoryDto: CreateCategoryDto) {
-    return this.categoryService.create(createCategoryDto)
+  async create(@Body() createCategoryDto: CreateCategoryDto) {
+    try {
+      return await this.categoryService.create(createCategoryDto)
+    } catch (error) {
+      console.error(error)
+      throw new BadRequestException(error.message)
+    }
   }
 
   @Get()

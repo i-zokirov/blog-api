@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  BadRequestException,
 } from '@nestjs/common'
 import { HashtagService } from './hashtag.service'
 import { CreateHashtagDto } from './dto/create-hashtag.dto'
@@ -16,8 +17,13 @@ export class HashtagController {
   constructor(private readonly hashtagService: HashtagService) {}
 
   @Post()
-  create(@Body() createHashtagDto: CreateHashtagDto) {
-    return this.hashtagService.create(createHashtagDto)
+  async create(@Body() createHashtagDto: CreateHashtagDto) {
+    try {
+      return await this.hashtagService.create(createHashtagDto)
+    } catch (error) {
+      console.error(error)
+      throw new BadRequestException(error.message)
+    }
   }
 
   @Get()
