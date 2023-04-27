@@ -42,16 +42,17 @@ export class Blog {
   hashtags: Hashtag[]
 
   @Prop({
-    type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Category' }],
-    default: [],
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Category',
+    required: true,
   })
   category: Category
 
-  @Prop({
-    type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-    default: [],
-  })
-  authors: User[]
+  // @Prop({
+  //   type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  //   default: [],
+  // })
+  // authors: User[]
 
   @Prop({ required: true, default: 0 })
   views: number
