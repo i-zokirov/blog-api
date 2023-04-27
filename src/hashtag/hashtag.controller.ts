@@ -27,16 +27,16 @@ export class HashtagController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.hashtagService.findOne(+id)
+    return this.hashtagService.findOne(id)
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateHashtagDto: UpdateHashtagDto) {
-    return this.hashtagService.update(+id, updateHashtagDto)
+    return this.hashtagService.update(id, updateHashtagDto)
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.hashtagService.remove(+id)
+    return this.hashtagService.remove(id)
   }
 }
